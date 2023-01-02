@@ -20,5 +20,5 @@ for i in range (1, (term_of_deposit+1)):
     
     print("Год:" , i, ", "  "накоплено с учетом процента на остаток: ", start)
 
-print("Да выхода на 'пенсию'", age + term_of_deposit)
+print("До выхода на 'пенсию'", age + term_of_deposit)
 print("Каждый месяц вы можете свободно снимать: ", start / 12 / time_of_luxury)
