@@ -83,7 +83,7 @@ def AM_reconstruction ():
         else:
             U_AM_reconstruction_list.append(time_step / k_PWM_AM * ((U_modulate_list[i + 1] - U_AM_reconstruction_list[i]) + U_AM_reconstruction_list[i]))
 
-# 10.
+# 10. Расчёт ошибки
 def error_calculate():
     for i in range(steps):
         absolute_error_PWM.append(U_PWM_reconstruction_list[i] - normalized_original_sigmal_list [i])
@@ -91,7 +91,7 @@ def error_calculate():
         absolute_error_AM.append(U_AM_reconstruction_list[i] - normalized_original_sigmal_list[i])
         relative_error_AM.append(absolute_error_AM[i] / normalized_original_sigmal_list[i] * 100)
 
-#10. Отрисовка графиков
+#11. Отрисовка графиков
 def draw_figure(title, xlabel, ylabel, x, y):
     plt.figure(figsize=(8, 4))
     plt.xlim(0, steps * time_step)
