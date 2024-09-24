@@ -5,6 +5,7 @@
 input_file = "bibliography.txt"
 output_file = "sorted_bibliography.txt"  # Выходной список
 new_numbers = True  # Отображение новых номеров для источников (старые будут в любом случае)
+only_nubers = not new_numbers #Вывести только скорректированную нумерацию
 
 def read_bibliography(filename):
     bibliography = []
@@ -30,6 +31,11 @@ def save_bibliography(filename, bibliography):
             i = 1  # Для нумерации нового списка
             for entry in bibliography:
                 file.write(f" {i}. {entry['number']}. {entry['text']}\n")
+                i += 1  # Прибавим 1 к номеру в списке
+        elif only_nubers:
+            i = 1  # Для нумерации нового списка
+            for entry in bibliography:
+                file.write(f" {i}. {entry['number']}.\n")
                 i += 1  # Прибавим 1 к номеру в списке
         else:
             for entry in bibliography:
