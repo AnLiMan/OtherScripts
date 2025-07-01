@@ -19,7 +19,7 @@ https://www.youtube.com/watch?v=wQLo4O2hNjI&ab_channel=%D0%AD%D0%BB%D0%B5%D0%BA%
 Здесь тоже
 
 6. RandomActions. Скрипт на VBA, который в рандомный момент времени будет сворачивать окна и перемещать курсор.
-Переместить в папку автозагрузки, изменить параметры чер блокнот и запустить. Папка автозагрузки:
+Переместить в папку автозагрузки, изменить параметры через блокнот и запустить. Папка автозагрузки:
 C:\Users\[YourUsername]\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup
 
 Либо Win+R - shell:startup
