@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Структура файлов в папке</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .folder {
+            cursor: pointer;
+            font-weight: bold;
+            color: #2980b9;
+            margin-left: 15px;
+        }
+        .folder:before {
+            content: "📁 ";
+        }
+        .folder.collapsed:before {
+            content: "📂 ";
+        }
+        .file {
+            margin-left: 30px;
+            color: #27ae60;
+        }
+        .file:before {
+            content: "📄 ";
+        }
+        .comment {
+            font-style: italic;
+            color: #7f8c8d;
+            margin-left: 45px;
+        }
+        .summary {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+        }
+        .toggle-all {
+            margin: 10px 0;
+            padding: 5px 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        /* Добавленные стили для отступов */
+        .folder-level-1 { margin-left: 15px; }
+        .folder-level-2 { margin-left: 30px; }
+        .folder-level-3 { margin-left: 45px; }
+        .folder-level-4 { margin-left: 60px; }
+        .folder-level-5 { margin-left: 75px; }
+        .folder-level-6 { margin-left: 90px; }
+        .folder-level-7 { margin-left: 105px; }
+        .folder-level-8 { margin-left: 115px; }
+        .file-level-1 { margin-left: 30px; }
+        .file-level-2 { margin-left: 45px; }
+        .file-level-3 { margin-left: 60px; }
+        .file-level-4 { margin-left: 75px; }
+        .file-level-5 { margin-left: 90px; }
+        .file-level-6 { margin-left: 115px; }
+        .file-level-7 { margin-left: 130px; }
+        .file-level-8 { margin-left: 145px; }
+    </style>
+</head>
+<body>
+    <h1>Структура файлов в папке</h1>
+    <p>Файл сгенерирован: 2025-07-11 09:48:02</p>
+    <p>Путь к папке: C:\Users\LisovAA\Desktop\Файлы\Инфа</p>
+    <button class="toggle-all" onclick="toggleAll()">Свернуть/развернуть всё</button>
+    <div id="tree">
+<div class="folder" onclick="toggleFolder(this)">Инфа</div>
+<div>
+    <div class="file">cat_izd_avtoproma (1).pdf</div>
+    <div class="file">trubki-polivinilhloridnye-elektroizolyacionnye-2016.pdf</div>
+    <div class="file">Tyco_AMP_Sealed_Connectors_65481.pdf</div>
+    <div class="folder folder-level-1" onclick="toggleFolder(this)">ГОСТы</div>
+    <div>
+        <div class="file file-level-1">ГОСТ 2.414-75. Правила выполнения жгутов.pdf</div>
+        <div class="file file-level-1">ГОСТ 2.702-2011. Правила выполнения эл. схем.pdf</div>
+        <div class="file file-level-1">ГОСТ 2.710-81. Обозначения буквенно-цифровые для эл. схем.pdf</div>
+        <div class="file file-level-1">ГОСТ 22483-2012. Жилы токопроводящие для кабелей, проводов и шнуров.pdf</div>
+    </div>
+    <div class="file">гофра.docx</div>
+    <div class="file">Заполнение раб времени.png</div>
+    <div class="file">МД22 - Протокол обмена по каналу J1939.pdf</div>
+    <div class="file">Метод разработки жгутов в програмной среде Exel.docx</div>
+    <div class="file">Нумерация бонок ЧСДМ на нашу.xlsx</div>
+    <div class="file">Особенности SAE J1939 (CAN).docx</div>
+    <div class="file">ОСТ 37.003.032-88. Соединители электрические разъемные для изделий автотракторного электрооборудования, автоэлектроники и жгутов проводов.rtf</div>
+    <div class="file">ОСТ 37.003.040-81.pdf</div>
+    <div class="file">Провода стандрарты ПВАМ.pdf</div>
+</div>
+    </div>
+    <div class="summary">
+        <p><strong>Итоги:</strong></p>
+        <p>Всего папок: <span id="folder-count">0</span></p>
+        <p>Всего файлов: <span id="file-count">0</span></p>
+    </div>
+    <script>
+        function toggleFolder(element) {{
+            element.classList.toggle('collapsed');
+            const content = element.nextElementSibling;
+            content.style.display = content.style.display === 'none' ? 'block' : 'none';
+        }}
+
+        function toggleAll() {{
+            const folders = document.querySelectorAll('.folder');
+            const isCollapsed = folders[0].classList.contains('collapsed');
+
+            folders.forEach(folder => {{
+                if (isCollapsed) {{
+                    folder.classList.remove('collapsed');
+                    folder.nextElementSibling.style.display = 'block';
+                }} else {{
+                    folder.classList.add('collapsed');
+                    folder.nextElementSibling.style.display = 'none';
+                }}
+            }});
+        }}
+
+        // Развернуть все папки по умолчанию
+        document.addEventListener('DOMContentLoaded', function() {{
+            document.getElementById('folder-count').textContent = document.querySelectorAll('.folder').length;
+            document.getElementById('file-count').textContent = document.querySelectorAll('.file').length;
+        }});
+    </script>
+</body>
+</html>
